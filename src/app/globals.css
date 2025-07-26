@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+/* @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+} */
+
+@theme {
+  --font-sans: var(--font-sora);
+  --font-serif: var(--font-montserrat);
+  --font-inter: var(--font-inter);
+  --color-white: #fff;
+  --color-black: #000;
+  --color-light: #f6e9e9;
+  --color-light2: #F7F7F7;
+  --color-light3: rgba(196, 196, 196, 1);
+  --color-dark: #1e1e1e;
+  --color-primary: #12ed39;
+  --color-primary-dark: #10c632;
+  --color-primary-light: #72ff8e;
+
+  --color-black-rbg: rgba(0, 0, 0, 1);
+  --green-gradiant: 180deg, rgba(81, 252, 139, 1) 0%, rgba(81, 252, 139, 0) 100%;
+  --color-glass-effect: rgba(140, 140, 140, 0.34);
+
+
+  --leading-lg: 20px;
+  --leading-xl: 24px;
+  --breakpoint-xs: 30rem;
+
+  /* --container-sm: 600px;
+  --container-md: 750px;
+  --container-lg: 1024px;
+  --container-xl: 1100px;
+  --container-2xl: 1272px;  */
+}
+
+@layer base {
+  :root {
+    --transition-fast: 0.2s ease-in-out;
+  }
+  html {
+    font-family: var(--font-sans);
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 16px;
+    color: #72ff8e;
+  }
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@utility container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Custom breakpoints using raw media queries */
+@media (min-width: 640px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1272px;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes menu-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+.animate-menu-in {
+  animation: menu-in 0.6s linear;
+
+}
+.animate-menu-out {
+  animation: menu-out 0.6s linear;
+
+}
+@keyframes menu-side-in {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes menu-side-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+.animate-menu-side-in {
+  animation: menu-side-in 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-menu-side-out {
+  animation: menu-side-out 0.3s cubic-bezier(0.4,0,0.2,1);
+}
