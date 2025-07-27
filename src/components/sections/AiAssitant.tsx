@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-// You can replace these with your actual image paths
 const desktopImageUrl = "/images/ai-graphic.webp";
 const mobileImageUrl = "/images/ai-graphicmobile.webp";
 const leftcardAiUrl = "/images/left-card-ai.webp";
