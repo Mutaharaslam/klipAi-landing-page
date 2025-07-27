@@ -8,8 +8,3 @@ export interface BottomCurvedProps {
   bgColor: string;
   curveColor: string;
 }
-
-export interface FeatureCard {
-  placeholder: string;
-  image: string;
-}

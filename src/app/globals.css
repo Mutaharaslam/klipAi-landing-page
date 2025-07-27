@@ -30,12 +30,6 @@
   --leading-lg: 20px;
   --leading-xl: 24px;
   --breakpoint-xs: 30rem;
-
-  /* --container-sm: 600px;
-  --container-md: 750px;
-  --container-lg: 1024px;
-  --container-xl: 1100px;
-  --container-2xl: 1272px;  */
 }
 
 @layer base {

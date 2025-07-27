@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { useQuadIntersectionObserver } from "@/utils";
+import { useQuadIntersectionObserver } from "@/lib/utils";
 
 export function Hero() {
   const { leftIn, rightIn, leftRef, rightRef } =

@@ -29,7 +29,7 @@ const AiAssistant: React.FC = () => {
           </p>
         </div>
 
-        {/* --- Image Section (Desktop) --- */}
+        {/* Image Section --- */}
         <div className="flex md:flex-row flex-col-reverse relative z-10 mt-16 w-full md:items-start items-center justify-center">
           {/* Green glow effect */}
           <div
@@ -42,7 +42,7 @@ const AiAssistant: React.FC = () => {
             style={{ filter: "blur(100px)" }}
           ></div>
           {/* Left Card */}
-          <div className="relative group transform -translate-x-1 top-6 lg:min-w-[250px] min-w-[200px] min-h-[300px] -rotate-12">
+          <div className="relative group transform -translate-x-1 top-6 lg:min-w-[250px] min-w-[200px] min-h-[300px]">
             <Image
               src={leftcardAiUrl}
               alt="Crypto Card"
@@ -72,7 +72,7 @@ const AiAssistant: React.FC = () => {
           </div>
 
           {/* Right Card */}
-          <div className="relative group md:block hidden transform top-6 md:translate-x-1 lg:min-w-[250px] min-w-[200px] min-h-[300px] rotate-12">
+          <div className="relative group md:block hidden transform top-6 md:translate-x-1 lg:min-w-[250px] min-w-[200px] min-h-[300px]">
             <Image
               src={rightCardAiUrl}
               alt="Crypto Card"

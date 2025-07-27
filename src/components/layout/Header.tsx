@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Navigation } from "./Navigation";
 import { Button } from "@/components/ui/Button";
@@ -7,11 +7,15 @@ import { IoClose } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 
 export function Header() {
+  // Safety: if you ever want to conditionally hide the header, return null here.
+  // Example: if (someCondition) return null;
+  // (Currently, all code paths return the header.)
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
       if (menuOpen) setMenuOpen(false); // Close menu on scroll
@@ -21,13 +25,14 @@ export function Header() {
   }, [menuOpen]);
 
   // Handle menu slide shift to top while scroll
-  React.useEffect(() => {
+  useEffect(() => {
     if (menuOpen) {
       setShowMenu(true);
     } else if (showMenu) {
       const timeout = setTimeout(() => setShowMenu(false), 300);
       return () => clearTimeout(timeout);
     }
+    return () => null;
   }, [menuOpen, showMenu]);
 
   return (

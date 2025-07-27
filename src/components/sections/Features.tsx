@@ -1,30 +1,5 @@
 import Image from "next/image";
-
-import type { FeatureCard } from "@/types/ui";
-
-// Data for your feature cards
-const featureCards: FeatureCard[] = [
-  {
-    placeholder: "Token Support",
-    image: "/images/card1.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/card2.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/card3.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/card4.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/card5.webp",
-  },
-];
+import { Card } from "../ui";
 
 export default function Features() {
   return (
@@ -52,36 +27,99 @@ export default function Features() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 relative">
-          <div className="absolute block bg-linear-(--green-gradiant2) sm:w-[466px] sm:h-[415px] w-[366px] h-[315px] md:-left-1/12 -left-[40px] md:top-0 -top-[100px] z-0 rounded-full blur-[200px]"></div>
-          {featureCards.map((card, index) => (
-            <div
-              key={index}
-              className={`relative rounded-2xl p-0 bg-dark3
-                overflow-hidden flex flex-col items-center justify-center text-center
-                min-h-[320px] md:min-h-[360px] lg:min-h-[380px] xl:min-h-[400px]
-                ${
-                  index === 0
-                    ? "lg:row-span-2 lg:col-span-1 min-h-[600px] md:pt-4 pt-8"
-                    : ""
-                }
-              `}
-            >
-              <div
-                className={`relative w-full h-full group ${
-                  index === 0 ? "md:h-full h-[600px]" : "h-full"
-                }`}
-              >
+          <div
+            className="absolute block bg-linear-(--green-gradiant2) sm:w-[466px] sm:h-[415px] 
+          w-[366px] h-[315px] md:-left-1/12 -left-[40px] md:top-0 -top-[100px] z-0 rounded-full blur-[200px]"
+          ></div>
+          {/* 1st Card */}
+          <Card
+            showPlusIcon
+            className="relative min-h-[320px] md:min-h-[400px] lg:min-h-[500px]  xl:min-h-[600px]
+             lg:row-span-2 lg:col-span-1 md:pt-4 pt-8 pb-16"
+          >
+            <div className="flex flex-col px-10 py-8 items-start justify-start">
+              <div className="relative w-14 h-14 mb-4">
                 <Image
-                  src={card.image}
-                  alt={card.placeholder}
+                  src="/images/tocken-support-Icon.webp"
+                  alt="tocken-support-Icon"
+                  className="object-contain"
                   fill
-                  className="object-contain group-hover:scale-105 transition-all duration-300"
-                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                  priority={true} // Prioritize first few images for LCP
                 />
               </div>
+              <h2 className="text-[36px] font-normal mb-4 text-left leading-none text-white">
+                Tocken <br /> Support
+              </h2>
             </div>
-          ))}
+            <div className={`relative w-full md:h-full h-[500px] z-10`}>
+              <Image
+                src="/images/iphone-mockup.webp"
+                alt="iphone-mockup"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-2 left-0 right-0 w-full h-[90px]">
+              <Image
+                src="/images/bars.webp"
+                alt="bars"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Card>
+          {/* 2nd Card */}
+          <Card title="Secure Transfers" className="px-8 pt-3 pb-8">
+            <div className={`relative w-full h-[260px]`}>
+              <Image
+                src="/images/credit-card.webp"
+                alt="credit-card"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Card>
+          {/* 3nd Card */}
+          <Card showPlusIcon className="px-8 pt-18 pb-4">
+            <div className={`relative w-full h-[290px]`}>
+              <Image
+                src="/images/multicards.webp"
+                alt="multicards"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Card>
+          {/* 4th Card */}
+          <Card
+            showPlusIcon
+            className="px-8 pt-12 pb-4 items-center justify-center"
+          >
+            <div className={`relative w-full h-[310px]`}>
+              <Image
+                src="/images/balance-cards.webp"
+                alt="card5"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Card>
+          {/* 5th Card */}
+          <Card
+            showPlusIcon
+            title="Unique Identity"
+            titleCenter
+            className="px-6 py-0 !items-center pb-0"
+          >
+            <div className="relative w-full h-full -bottom-3">
+              <Image
+                src="/images/effiecent-protected.webp"
+                alt="card5"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Card>
         </div>
       </div>
     </section>

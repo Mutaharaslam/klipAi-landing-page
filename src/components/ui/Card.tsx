@@ -1,78 +1,60 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+"use client";
+import Image from "next/image";
+import React from "react";
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'rounded-lg border bg-card text-card-foreground shadow-sm transition-smooth hover:shadow-md',
-      className
-    )}
-    {...props}
-  />
-))
-Card.displayName = 'Card'
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  showPlusIcon?: boolean;
+  titleCenter?: boolean;
+  title?: string;
+  children: React.ReactNode;
+}
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col space-y-1.5 p-6', className)}
-    {...props}
-  />
-))
-CardHeader.displayName = 'CardHeader'
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  (
+    {
+      showPlusIcon = false,
+      title,
+      titleCenter = false,
+      children,
+      className,
+      ...props
+    },
+    ref
+  ) => (
+    <div
+      ref={ref}
+      className={`relative rounded-[20px] p-0 bg-dark3
+                overflow-hidden flex flex-col items-start justify-start text-center
+                min-h-[320px] md:min-h-[360px] lg:min-h-[380px] xl:min-h-[400px] ${
+                  className ?? ""
+                }`}
+      {...props}
+    >
+      {showPlusIcon && (
+        <span className="absolute z-10 md:top-5 md:right-5 top-4 right-4 text-gray-300">
+          <div className="flex items-center justify-center relative w-9 h-9">
+            <Image
+              src="/icons/plus.svg"
+              alt="plus"
+              className="Object-contain"
+              fill
+              priority
+            />
+          </div>
+        </span>
+      )}
+      {title && (
+        <h2
+          className={`text-[36px] font-normal mb-4 leading-none text-white mt-6 md:mt-8 ${
+            titleCenter ? "text-center" : "text-left"
+          }`}
+        >
+          {title}
+        </h2>
+      )}
+      {children}
+    </div>
+  )
+);
 
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      'text-2xl font-semibold leading-none tracking-tight',
-      className
-    )}
-    {...props}
-  />
-))
-CardTitle.displayName = 'CardTitle'
-
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn('text-sm text-muted-foreground', className)}
-    {...props}
-  />
-))
-CardDescription.displayName = 'CardDescription'
-
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
-))
-CardContent.displayName = 'CardContent'
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex items-center p-6 pt-0', className)}
-    {...props}
-  />
-))
-CardFooter.displayName = 'CardFooter'
-
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+Card.displayName = "Card";
