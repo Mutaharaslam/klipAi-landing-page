@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Navigation } from "./Navigation";
+import { IoClose } from "react-icons/io5";
+import { IoMenuOutline } from "react-icons/io5";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -70,34 +72,11 @@ export function Header() {
         aria-controls="mobile-menu"
       >
         {menuOpen ? (
-          // Cross icon when menu is open
-          <svg width="32" height="32" fill="none" aria-hidden="true">
-            <line
-              x1="8"
-              y1="8"
-              x2="24"
-              y2="24"
-              stroke="#fff"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <line
-              x1="24"
-              y1="8"
-              x2="8"
-              y2="24"
-              stroke="#fff"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
+          // Cross icon close menu
+          <IoClose className="w-8 h-8 text-white" />
         ) : (
-          // Hamburger icon when menu is closed
-          <svg width="32" height="32" fill="none" aria-hidden="true">
-            <rect y="8" width="32" height="3" rx="1.5" fill="#fff" />
-            <rect y="15" width="32" height="3" rx="1.5" fill="#fff" />
-            <rect y="22" width="32" height="3" rx="1.5" fill="#fff" />
-          </svg>
+          // Hamburger menu
+          <IoMenuOutline className="w-8 h-8 text-white" />
         )}
       </button>
 
@@ -105,7 +84,10 @@ export function Header() {
       {showMenu && (
         <nav
           id="mobile-menu"
-          className="fixed top-0 left-0 h-screen w-[80vw] max-w-xs bg-black z-50 flex items-start justify-center shadow-2xl"
+          className={`fixed top-0 left-0 h-screen bg-black w-[80vw]  max-w-xs z-50 flex items-start justify-center shadow-2xl
+            transition-transform duration-300 ${
+              menuOpen ? " translate-x-0" : "-translate-x-[80vw]"
+            }`}
           aria-label="Mobile Navigation"
         >
           <div

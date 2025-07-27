@@ -1,7 +1,33 @@
+'use client';
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+import { FiArrowRight } from "react-icons/fi";
+
 
 export function Hero() {
+  const [leftIn, setLeftIn] = useState(false);
+  const [rightIn, setRightIn] = useState(false);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const leftObserver = new IntersectionObserver(
+      ([entry]) => setLeftIn(entry?.isIntersecting ?? false),
+      { threshold: 0.3 }
+    );
+    const rightObserver = new IntersectionObserver(
+      ([entry]) => setRightIn(entry?.isIntersecting ?? false),
+      { threshold: 0.3 }
+    );
+    if (leftRef.current) leftObserver.observe(leftRef.current);
+    if (rightRef.current) rightObserver.observe(rightRef.current);
+    return () => {
+      leftObserver.disconnect();
+      rightObserver.disconnect();
+    };
+  }, []);
+
   return (
     <section className="relative w-full flex flex-col items-center justify-center bg-white pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col items-center relative">
@@ -13,7 +39,7 @@ export function Hero() {
           <br />
           Smart control.
         </h1>
-        <div className="flex md:flex-col flex-col-reverse items-center md:gap-0 gap-24">
+        <div className="flex md:flex-col flex-col-reverse w-full items-center md:gap-0 gap-24">
           <div className="flex flex-col items-center">
             {/* Desc */}
             <p className="text-center relative text-base leading-normal font-normal text-black mx-auto mb-6.5">
@@ -30,7 +56,7 @@ export function Hero() {
               <span className="relative z-10 flex flex-row gap-4 items-center mt-1">
                 GET STARTED{" "}
                 <span className="relative translate-x-0 group-hover:translate-x-3 group-hover:scale-[1.6]  transition-transform">
-                  <ArrowRight className="text-black w-3.5 h-3.5" />
+                  <FiArrowRight className="text-black w-3.5 h-3.5" />
                 </span>
               </span>
 
@@ -42,7 +68,7 @@ export function Hero() {
           {/* Hero Image + Blobs */}
           <div className="relative w-full flex justify-center md:items-center items-start md:mt-2 mt-8 max-w-4xl">
             {/* green blob background */}
-            <div className="absolute left-1/2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-0 w-[340px] h-[340px] md:w-[480px] md:h-[480px] lg:w-[540px] lg:h-[540px]">
+            <div className="absolute left-1/2 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-0 w-[370px] h-[370px] md:w-[480px] md:h-[480px] lg:w-[540px] lg:h-[540px]">
               <Image
                 src="/images/green-blob.webp"
                 alt="Green blob background"
@@ -52,12 +78,12 @@ export function Hero() {
               />
             </div>
             {/* phone image */}
-            <div className="relative md:top-14 top-6 z-10 w-[300px] h-[420px] md:w-[340px] md:h-[520px] lg:w-[590px] lg:h-[600px]">
+            <div className="relative group md:top-14 top-6 z-10 w-[300px] h-[420px] md:w-[340px] md:h-[520px] lg:w-[590px] lg:h-[600px]">
               <Image
                 src="/images/phone-tilt.webp"
                 alt="KlipAI Wallet Phone"
                 fill
-                className="object-contain hidden md:block"
+                className="object-contain hidden md:block group-hover:scale-105 transition-transform duration-300"
                 priority
               />
               <Image
@@ -69,58 +95,78 @@ export function Hero() {
               />
             </div>
             {/* Left floating card */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 min-w-[246px]">
-              <div className="flex items-center rounded-full backdrop-blur-[25px] bg-glass-effect border-light3 px-4 py-3.5 shadow-lg  border border-solid">
-                <div className="flex flex-col items-start">
-                  <span className="text-light2 text-lg font-inter  font-semibold leading-[1.2]">
+            <div
+              ref={leftRef}
+              className={`absolute left-0 md:top-1/2 sm:top-[70px] top-[50px] md:-translate-y-1/2 sm:-translate-y-1/6 -translate-y-1/12 z-20 md:min-w-[246px] min-w-[130px] 
+                transition-all duration-700 ease-out
+                ${
+                  leftIn
+                    ? "opacity-100 md:translate-x-0 md:translate-y-0 translate-y-0"
+                    : "opacity-0 md:-translate-x-16 md:translate-y-0 translate-y-16"
+                }
+              `}
+            >
+              <div className="flex items-center rounded-full backdrop-blur-[25px] bg-glass-effect border-light3 md:px-4 sm:px-3 px-2 md:py-3.5 sm:py-2.5 py-1.5 shadow-lg  border border-solid">
+                <div className="flex flex-col items-start mr-3">
+                  <span className="text-light2 md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-semibold leading-[1.2]">
                     $2,951.73
                   </span>
-                  <span className="text-black text-lg font-inter  font-normal leading-[1.2]">
+                  <span className="text-black md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-normal leading-[1.2]">
                     APL 17
                   </span>
                 </div>
-                <div className="flex flex-col items-end ml-6">
-                  <span className="text-light2 text-lg font-inter  font-semibold leading-[1.2]">
+                <div className="flex flex-col items-end ml-auto">
+                  <span className="text-light2 md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-semibold leading-[1.2]">
                     Apollo
                   </span>
-                  <span className="text-black text-lg font-inter  font-normal leading-[1.22]">
+                  <span className="text-black md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-normal leading-[1.22]">
                     APL
                   </span>
                 </div>
-                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 ml-2">
+                <div className="relative md:w-10 sm:w-8 w-6 md:h-10 sm:h-8 h-6  flex items-center justify-center flex-shrink-0 ml-2">
                   <Image
                     src="/icons/sparkle.svg"
                     alt="Apollo Icon"
-                    width={40}
-                    height={40}
+                    fill
+                    className="object-contain"
                   />
                 </div>
               </div>
             </div>
             {/* Right floating card */}
-            <div className="absolute right-0 top-2/3 -translate-y-1/2 z-20  min-w-[267px]">
-              <div className="flex items-center rounded-full backdrop-blur-[25px] bg-glass-effect border-light3 px-4 py-3.5 shadow-lg  border border-solid">
-                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 mr-2">
+            <div
+              ref={rightRef}
+              className={`absolute right-0 top-2/3 -translate-y-1/2 z-20  md:min-w-[267px] min-w-[150px] 
+                transition-all duration-700 ease-out
+                ${
+                  rightIn
+                    ? "opacity-100 md:translate-x-0 md:translate-y-0 translate-y-0"
+                    : "opacity-0 md:translate-x-16 md:translate-y-0 translate-y-16"
+                }
+              `}
+            >
+              <div className="flex items-center rounded-full backdrop-blur-[25px] bg-glass-effect border-light3 md:px-4 sm:px-3 px-2 md:py-3.5 sm:py-2.5 py-1.5 shadow-lg  border border-solid">
+                <div className="relative md:w-10 sm:w-8 w-6 md:h-10 sm:h-8 h-6  flex items-center justify-center flex-shrink-0 mr-2">
                   <Image
                     src="/icons/start.svg"
                     alt="Apollo Icon"
-                    width={40}
-                    height={40}
+                    fill
+                    className="object-contain"
                   />
                 </div>
                 <div className="flex flex-col items-start mr-2">
-                  <span className="text-light2 text-lg font-inter  font-semibold leading-[1.2]">
+                  <span className="text-light2 md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-semibold leading-[1.2]">
                     Romulus
                   </span>
-                  <span className="text-black text-lg font-inter  font-normal leading-[1.2]">
+                  <span className="text-black md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-normal leading-[1.2]">
                     RLS
                   </span>
                 </div>
                 <div className="flex flex-col items-end ml-auto">
-                  <span className="text-light2 text-lg font-inter  font-semibold leading-[1.2]">
+                  <span className="text-light2 md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-semibold leading-[1.2]">
                     $3,271.20
                   </span>
-                  <span className="text-black text-lg font-inter  font-normal leading-[1.22]">
+                  <span className="text-black md:text-lg sm:text-base xs:text-sm text-xs font-inter  font-normal leading-[1.22]">
                     RLS 24
                   </span>
                 </div>

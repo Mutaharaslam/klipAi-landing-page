@@ -54,9 +54,13 @@
   --color-white: #fff;
   --color-black: #000;
   --color-light: #f6e9e9;
-  --color-light2: #F7F7F7;
+  --color-light2: #f7f7f7;
   --color-light3: rgba(196, 196, 196, 1);
+  --color-light4: #EDEDED;
+  --color-light5: #F4F2F0;
   --color-dark: #1e1e1e;
+  --color-dark2: #6B7280;
+  --color-dark3: #151515;
   --color-primary: #12ed39;
   --color-primary-dark: #10c632;
   --color-primary-light: #72ff8e;
@@ -64,7 +68,8 @@
   --color-black-rbg: rgba(0, 0, 0, 1);
   --green-gradiant: 180deg, rgba(81, 252, 139, 1) 0%, rgba(81, 252, 139, 0) 100%;
   --color-glass-effect: rgba(140, 140, 140, 0.34);
-
+  --cards-shadow: 20px 10px 60px 0px rgba(0, 0, 0, 0.16);
+;
 
   --leading-lg: 20px;
   --leading-xl: 24px;
@@ -140,34 +145,6 @@
   }
 }
 
-@keyframes menu-in {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes menu-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-.animate-menu-in {
-  animation: menu-in 0.6s linear;
-
-}
-.animate-menu-out {
-  animation: menu-out 0.6s linear;
-
-}
 @keyframes menu-side-in {
   from {
     opacity: 0;
@@ -189,8 +166,8 @@
   }
 }
 .animate-menu-side-in {
-  animation: menu-side-in 0.3s cubic-bezier(0.4,0,0.2,1);
+  animation: menu-side-in 0.3s linear;
 }
 .animate-menu-side-out {
-  animation: menu-side-out 0.3s cubic-bezier(0.4,0,0.2,1);
+  animation: menu-side-out 0.3s linear;
 }
