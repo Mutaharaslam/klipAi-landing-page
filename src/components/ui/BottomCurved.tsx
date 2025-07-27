@@ -1,5 +1,7 @@
 import { BottomCurvedProps } from "@/types/ui";
 
+
+// It would generate a curver at the bottom of the section
 export const BottomCurved: React.FC<BottomCurvedProps> = ({
   children,
   bgColor,

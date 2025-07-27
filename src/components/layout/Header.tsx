@@ -7,10 +7,6 @@ import { IoClose } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 
 export function Header() {
-  // Safety: if you ever want to conditionally hide the header, return null here.
-  // Example: if (someCondition) return null;
-  // (Currently, all code paths return the header.)
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +20,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuOpen]);
 
-  // Handle menu slide shift to top while scroll
+  // slide shift to top while scroll
   useEffect(() => {
     if (menuOpen) {
       setShowMenu(true);

@@ -34,7 +34,6 @@ const features: ServiceFeature[] = [
   },
 ];
 
-// Main component to display the features section
 const ServiceFeatures: React.FC = () => {
   return (
     <div className="bg-white text-white min-h-screen font-sans">

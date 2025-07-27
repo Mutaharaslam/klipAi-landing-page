@@ -2,13 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/autoplay";
-
 import { Logo } from "@/types/ui";
 
 const logos: Logo[] = [
@@ -26,12 +23,10 @@ const logos: Logo[] = [
   { src: "/images/partner-logos/Logo3.webp", alt: "Company Logo 3" },
   { src: "/images/partner-logos/Logo4.webp", alt: "Company Logo 4" },
   { src: "/images/partner-logos/Logo5.webp", alt: "Company Logo 5" },
-  { src: "/images/partner-logos/Logo2.webp", alt: "Company Logo 6" },
-  { src: "/images/partner-logos/Logo3.webp", alt: "Company Logo 7" },
-  { src: "/images/partner-logos/Logo4.webp", alt: "Company Logo 9" },
-  { src: "/images/partner-logos/Logo5.webp", alt: "Company Logo 8" },
 ];
 
+
+// I just made this with swiper just becuase it looks like sliding logos in figma
 const PartnerLogos: React.FC = () => {
   return (
     <section className="overflow-hidden">

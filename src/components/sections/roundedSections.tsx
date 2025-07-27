@@ -1,4 +1,3 @@
-// components/StackedSection.tsx
 import Image from "next/image";
 import { BottomCurved } from "../ui/BottomCurved";
 

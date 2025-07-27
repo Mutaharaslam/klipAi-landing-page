@@ -23,6 +23,7 @@
 - **Formatting**: Prettier
 - **Icons**: React icons(Had to use React icons because of some issue with Lucide React)
 - **Utilities**: clsx, tailwind-merge
+- **Fonts** There are three fonts => Sora, Montserrat, Inter (Sora is primary one)
 
 ## 📁 Project Structure
 

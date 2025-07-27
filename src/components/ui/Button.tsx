@@ -1,7 +1,8 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-export interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AnimatedButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   arrow?: boolean;
   className?: string;
@@ -18,9 +19,12 @@ export const Button = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
       }
       {...props}
     >
-      <span className={
-        "relative z-10 flex flex-row gap-4 items-center mt-1" + (arrow ? "" : " justify-center")
-      }>
+      <span
+        className={
+          "relative z-10 flex flex-row gap-4 items-center mt-1" +
+          (arrow ? "" : " justify-center")
+        }
+      >
         {children}
         {arrow && (
           <span className="relative translate-x-0 group-hover:translate-x-3 group-hover:scale-[1.6] transition-transform">
@@ -28,6 +32,7 @@ export const Button = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
           </span>
         )}
       </span>
+      {/* Just to add a ripple effect */}
       <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:-translate-x-full"></span>
       <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:translate-x-full"></span>
     </button>

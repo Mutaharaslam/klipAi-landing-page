@@ -12,6 +12,7 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   display: "swap",
 });
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
