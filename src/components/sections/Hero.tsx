@@ -31,6 +31,7 @@ export function Hero() {
   return (
     <section className="relative w-full flex flex-col items-center justify-center bg-white pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col items-center relative">
+        {/* A green light bg behide the hero content */}
         <div className="absolute md:block hidden bg-linear-(--green-gradiant) w-[866px]  h-[615px] bg-[] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 rounded-full blur-[600px]"></div>
         {/* Title */}
         <h1 className="font-bold relative text-center text-4xl xl:text-5xl lg:leading-none  text-black mb-4">

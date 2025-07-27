@@ -61,12 +61,16 @@
   --color-dark: #1e1e1e;
   --color-dark2: #6B7280;
   --color-dark3: #151515;
+  --color-grey: #C4C4C4;
   --color-primary: #12ed39;
   --color-primary-dark: #10c632;
+  --color-primary-dark2: rgba(17, 146, 0, 1);
   --color-primary-light: #72ff8e;
+  --color-primary-light2: rgba(17, 146, 0, 0.19);
 
   --color-black-rbg: rgba(0, 0, 0, 1);
   --green-gradiant: 180deg, rgba(81, 252, 139, 1) 0%, rgba(81, 252, 139, 0) 100%;
+  --green-gradiant2: 0deg, rgba(81, 252, 139, 1) 0%, rgba(81, 252, 139, 1) 100%;
   --color-glass-effect: rgba(140, 140, 140, 0.34);
   --cards-shadow: 20px 10px 60px 0px rgba(0, 0, 0, 0.16);
 ;

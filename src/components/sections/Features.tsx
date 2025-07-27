@@ -26,26 +26,31 @@ const featureCards = [
 
 export default function Features() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-8 md:py-24">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center md:text-left mb-12 md:mb-16">
-          <span className="inline-block bg-[#D9F0E1] text-[#222] text-sm font-semibold px-3 py-1 rounded-full mb-4">
+        <div className="text-center md:text-left mb-12 md:mb-16 xl:mb-22">
+          <span
+            className="flex items-center justify-center  bg-primary-light2 
+          text-black text-base font-bold text px-3 py-1 h-[40px] max-w-[96px]
+           rounded-full border border-primary-dark2 sm:mb-8 mb-4"
+          >
             BENEFIT
           </span>
-          <div className="flex flex-col md:flex-row md:justify-between md:items-end">
-            <h2 className="text-black text-4xl md:text-5xl font-bold leading-tight mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center items-start">
+            <h2 className="font-bold relative text-left text-4xl xl:text-5xl lg:leading-none  text-black md:mb-0 mb-3">
               Say goodbye to
               <br className="hidden md:block" /> Wallet Addresses.
             </h2>
-            <p className="text-black text-base font-medium max-w-md md:text-right">
+            <p className="text-black sm:text-base text-xs  sm:leading-normal leading-none font-normal max-w-xs text-black text-left">
               Just enter the handle, select your token, and confirm. No
               copy-paste. No errors. No friction.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 relative">
+          <div className="absolute block bg-linear-(--green-gradiant2) sm:w-[466px] sm:h-[415px] w-[366px] h-[315px] md:-left-1/12 -left-[40px] md:top-0 -top-[100px] z-0 rounded-full blur-[200px]"></div>
           {featureCards.map((card, index) => (
             <div
               key={index}
@@ -70,7 +75,7 @@ export default function Features() {
                   fill
                   className="object-contain"
                   sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                  priority={index < 1} // Prioritize first few images for LCP
+                  priority={true} // Prioritize first few images for LCP
                 />
               </div>
             </div>
