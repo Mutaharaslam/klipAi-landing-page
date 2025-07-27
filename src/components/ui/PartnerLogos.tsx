@@ -9,10 +9,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-interface Logo {
-  src: string;
-  alt: string;
-}
+import { Logo } from "@/types/ui";
 
 const logos: Logo[] = [
   { src: "/images/partner-logos/Logo5.webp", alt: "Company Logo 1" },

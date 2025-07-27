@@ -22,8 +22,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Next.js Boilerplate",
-    template: "%s | Next.js Boilerplate",
+    default: "Klip Ai | Test",
+    template: "%s | Klip Ai",
   },
   description:
     "A modern Next.js 14+ boilerplate with TypeScript and Tailwind CSS",
@@ -39,13 +39,6 @@ export const metadata: Metadata = {
     description:
       "A modern Next.js 14+ boilerplate with TypeScript and Tailwind CSS",
     siteName: "Next.js Boilerplate",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Next.js Boilerplate",
-    description:
-      "A modern Next.js 14+ boilerplate with TypeScript and Tailwind CSS",
-    creator: "@yourusername",
   },
   robots: {
     index: true,

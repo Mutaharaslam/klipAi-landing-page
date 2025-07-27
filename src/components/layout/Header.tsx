@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Navigation } from "./Navigation";
+import { Button } from "@/components/ui/Button";
 import { IoClose } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 
@@ -54,16 +55,13 @@ export function Header() {
         <Navigation />
       </nav>
 
-      <button
-        rel="noopener noreferrer"
-        className={`relative cursor-pointer max-w-27 w-full px-2 pb-1  ${scrolled ? 'h-10' : 'h-12' } hidden md:flex
-         items-center justify-center text-center rounded-full xl:text-base text-sm font-semibold hover:text-red-btn 
-        text-dark transition-all duration-300 overflow-hidden group bg-primary-light`}
+      <Button
+        className={`max-w-[110px] w-full px-2 pb-1 ${
+          scrolled ? "h-10" : "h-12"
+        } hidden md:flex items-center justify-center text-center rounded-full xl:text-base text-sm font-semibold hover:text-red-btn text-dark transition-all duration-300 overflow-hidden group bg-primary-light`}
       >
-        <span className="relative z-10 mt-1">Login</span>
-        <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:-translate-x-full"></span>
-        <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:translate-x-full"></span>
-      </button>
+        Login
+      </Button>
 
       {/* Mobile Hamburger */}
       <button

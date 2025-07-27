@@ -2,29 +2,13 @@
 import Image from "next/image";
 import { BottomCurved } from "../ui/BottomCurved";
 
-// Data for your feature cards
-const phones = [
-  {
-    placeholder: "Token Support",
-    image: "/images/phone-1.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/phone-2.webp",
-  },
-  {
-    placeholder: "Token Support",
-    image: "/images/phone-3.webp",
-  },
-];
-
 export default function RoundedSections() {
   return (
-    <section className="p-0">
+    <section className="p-0" id="web3">
       {/* 1st */}
       <BottomCurved bgColor="#74F174" curveColor="white">
         <div className="container">
-          <div className="flex items-center justify-center relative max-w-[420px] h-[860px] mx-auto">
+          <div className="flex items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
             <Image
               src="/images/phone-1.webp"
               alt="phone-1"
@@ -38,7 +22,7 @@ export default function RoundedSections() {
       {/* 2nd */}
       <BottomCurved bgColor="white" curveColor="#74F174">
         <div className="container">
-          <div className="flex items-center justify-center relative max-w-[420px] h-[860px] mx-auto">
+          <div className="flex items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
             <Image
               src="/images/phone-1.webp"
               alt="phone-1"
@@ -52,11 +36,11 @@ export default function RoundedSections() {
       {/* 3rd */}
       <BottomCurved bgColor="#74F174" curveColor="white">
         <div className="container">
-          <div className="flex items-center justify-center relative max-w-[420px] h-[860px] mx-auto">
+          <div className="flex group items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
             <Image
               src="/images/phone-1.webp"
               alt="phone-1"
-              className="Object-contain"
+              className="Object-contain group-hover:-translate-y-4 group-hover:scale-105 transition-transform duration-300"
               fill
               priority
             />

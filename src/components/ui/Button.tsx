@@ -1,53 +1,37 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import React from "react";
+import { FiArrowRight } from "react-icons/fi";
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-target transition-smooth',
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
-      },
-      size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+export interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  arrow?: boolean;
+  className?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Button.displayName = 'Button'
+export const Button = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
+  ({ children, arrow = false, className = "", ...props }, ref) => (
+    <button
+      ref={ref}
+      rel="noopener noreferrer"
+      className={
+        "relative cursor-pointer max-w-53 w-full px-2 pb-1 flex items-center justify-center text-center rounded-full xl:text-sm text-sm font-normal hover:text-red-btn text-dark transition-all duration-300 overflow-hidden group bg-primary-light " +
+        className
+      }
+      {...props}
+    >
+      <span className={
+        "relative z-10 flex flex-row gap-4 items-center mt-1" + (arrow ? "" : " justify-center")
+      }>
+        {children}
+        {arrow && (
+          <span className="relative translate-x-0 group-hover:translate-x-3 group-hover:scale-[1.6] transition-transform">
+            <FiArrowRight className="text-black w-3.5 h-3.5" />
+          </span>
+        )}
+      </span>
+      <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:-translate-x-full"></span>
+      <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:translate-x-full"></span>
+    </button>
+  )
+);
 
-export { Button, buttonVariants }
+Button.displayName = "Button";

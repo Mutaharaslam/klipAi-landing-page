@@ -16,7 +16,7 @@ export function WhatIsKlip() {
   }, []);
 
   return (
-    <section className="w-auto py-12 md:py-20 bg-white rounded-lg border md:border-light4 border-transparent my-8 md:mx-[20px] mx-auto">
+    <section id="what-is-klipai" className="scroll-mt-24 w-auto py-12 md:py-20 bg-white rounded-lg border md:border-light4 border-transparent my-8 md:mx-[20px] mx-auto">
       <div className="grid grid-cols-12 items-center justify-center gap-0 md:gap-12 container px-4">
         {/* Left: Phone and cards */}
         <div className="relative lg:col-span-7 md:col-span-8 col-span-12 flex-shrink-0 overflow-hidden w-full flex items-end justify-center bg-light5 rounded-lg min-h-[471px] md:px-0 px-8 pt-16">

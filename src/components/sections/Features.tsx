@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import type { FeatureCard } from "@/types/ui";
+
 // Data for your feature cards
-const featureCards = [
+const featureCards: FeatureCard[] = [
   {
     placeholder: "Token Support",
     image: "/images/card1.webp",
@@ -26,7 +28,7 @@ const featureCards = [
 
 export default function Features() {
   return (
-    <section className="bg-white py-8 md:py-24">
+    <section id="send-klapai" className="scroll-mt-24 bg-white py-8 md:py-24">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center md:text-left mb-12 md:mb-16 xl:mb-22">

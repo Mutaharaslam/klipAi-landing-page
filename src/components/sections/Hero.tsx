@@ -1,32 +1,11 @@
-'use client';
+"use client";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-import { FiArrowRight } from "react-icons/fi";
-
+import { Button } from "@/components/ui/Button";
+import { useQuadIntersectionObserver } from "@/utils";
 
 export function Hero() {
-  const [leftIn, setLeftIn] = useState(false);
-  const [rightIn, setRightIn] = useState(false);
-  const leftRef = useRef<HTMLDivElement>(null);
-  const rightRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const leftObserver = new IntersectionObserver(
-      ([entry]) => setLeftIn(entry?.isIntersecting ?? false),
-      { threshold: 0.3 }
-    );
-    const rightObserver = new IntersectionObserver(
-      ([entry]) => setRightIn(entry?.isIntersecting ?? false),
-      { threshold: 0.3 }
-    );
-    if (leftRef.current) leftObserver.observe(leftRef.current);
-    if (rightRef.current) rightObserver.observe(rightRef.current);
-    return () => {
-      leftObserver.disconnect();
-      rightObserver.disconnect();
-    };
-  }, []);
+  const { leftIn, rightIn, leftRef, rightRef } =
+    useQuadIntersectionObserver(0.3);
 
   return (
     <section className="relative w-full flex flex-col items-center justify-center bg-white pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
@@ -50,20 +29,12 @@ export function Hero() {
             </p>
 
             {/* CTA Button */}
-            <button
-              rel="noopener noreferrer"
-              className="relative max-w-53 cursor-pointer w-full px-2 pb-1 h-14 flex items-center justify-center text-center rounded-full xl:text-sm text-sm font-normal hover:text-red-btn text-dark transition-all duration-300 overflow-hidden group bg-primary-light"
+            <Button
+              arrow
+              className="max-w-53 cursor-pointer w-full px-2 pb-1 h-14 flex items-center justify-center text-center rounded-full xl:text-sm text-sm font-normal hover:text-red-btn text-dark transition-all duration-300 overflow-hidden group bg-primary-light"
             >
-              <span className="relative z-10 flex flex-row gap-4 items-center mt-1">
-                GET STARTED{" "}
-                <span className="relative translate-x-0 group-hover:translate-x-3 group-hover:scale-[1.6]  transition-transform">
-                  <FiArrowRight className="text-black w-3.5 h-3.5" />
-                </span>
-              </span>
-
-              <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:-translate-x-full"></span>
-              <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:translate-x-full"></span>
-            </button>
+              GET STARTED
+            </Button>
           </div>
 
           {/* Hero Image + Blobs */}

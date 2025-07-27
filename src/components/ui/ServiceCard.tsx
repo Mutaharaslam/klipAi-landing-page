@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { ServiceCardProps } from "@/types/services";
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, imageUrl, alt }) => {
+export const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  description,
+  imageUrl,
+  alt,
+}) => {
   return (
     <div className="bg-black rounded-lg overflow-hidden">
       <div className="lg:py-[70px] md:py-[50px] sm:py-[32px] py-[25px] lg:px-[50px] md:px-[32px] px-[25px] text-center">
@@ -14,12 +19,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, im
             priority
           />
         </div>
-        <h3 className="lg:text-[32px] md:text-[24px] text-[17px] leading-[1.2] font-medium text-primary mb-3">
-          {title}
-        </h3>
-        <p className="lg:text-[16px] md:text-[14px] text-[12px] leading-[1.5] font-normal text-white mb-0">
-          {description}
-        </p>
+        <div className="flex flex-col items-center max-w-md mx-auto">
+          <h3 className="lg:text-[32px] md:text-[24px] text-[17px] leading-[1.2] font-medium text-primary mb-3">
+            {title}
+          </h3>
+          <p className="lg:text-[16px] md:text-[14px] text-[12px] leading-[1.5] font-normal text-white mb-0">
+            {description}
+          </p>
+        </div>
       </div>
     </div>
   );
