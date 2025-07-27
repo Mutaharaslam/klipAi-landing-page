@@ -1,12 +1,11 @@
-# Next.js 14+ Boilerplate
+# Next.js 14+ and tailwind CSS (version 4.1) using TypeScript
 
-A modern, production-ready boilerplate built with Next.js 14+, TypeScript (strict mode), and Tailwind CSS.
 
 ## 🚀 Features
 
 - **Next.js 14+** with App Router
 - **TypeScript** with strict mode enabled
-- **Tailwind CSS** for styling
+- **Tailwind CSS V-4.1** for styling
 - **Responsive Design** with mobile-first approach
 - **Performance Optimized** with Next.js Image component
 - **Accessibility Ready** with ARIA labels and keyboard navigation
@@ -22,7 +21,7 @@ A modern, production-ready boilerplate built with Next.js 14+, TypeScript (stric
 - **Styling**: Tailwind CSS
 - **Linting**: ESLint
 - **Formatting**: Prettier
-- **Icons**: Lucide React
+- **Icons**: React icons(Had to use React icons because of some issue with Lucide React)
 - **Utilities**: clsx, tailwind-merge
 
 ## 📁 Project Structure
@@ -60,7 +59,6 @@ nextjs-boilerplate/
 ├── public/
 │   ├── images/
 │   ├── icons/
-│   └── logos/
 ├── .gitignore
 ├── package.json
 ├── tsconfig.json
@@ -80,7 +78,7 @@ nextjs-boilerplate/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/nextjs-boilerplate.git
+git clone https://github.com/yourusername/klipAI-landing-page-test.git
 cd nextjs-boilerplate
 ```
 
