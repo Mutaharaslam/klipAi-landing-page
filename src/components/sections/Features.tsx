@@ -50,10 +50,10 @@ export default function Features() {
                 Tocken <br /> Support
               </h2>
             </div>
-            <div className={`relative w-full md:h-full h-[500px] z-10`}>
+            <div className={`relative group w-full md:h-full h-[500px] z-10`}>
               <Image
                 src="/images/iphone-mockup.webp"
-                alt="iphone-mockup"
+                alt="iphone-mockup group-hover:scale-105 transition-transform duration-300"
                 fill
                 className="object-contain"
               />
@@ -69,23 +69,23 @@ export default function Features() {
           </Card>
           {/* 2nd Card */}
           <Card title="Secure Transfers" className="px-8 pt-3 pb-8">
-            <div className={`relative w-full h-[260px]`}>
+            <div className={`relative group w-full h-[260px]`}>
               <Image
                 src="/images/credit-card.webp"
                 alt="credit-card"
                 fill
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Card>
           {/* 3nd Card */}
           <Card showPlusIcon className="px-8 pt-18 pb-4">
-            <div className={`relative w-full h-[290px]`}>
+            <div className={`relative group w-full h-[290px]`}>
               <Image
                 src="/images/multicards.webp"
                 alt="multicards"
                 fill
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Card>
@@ -94,12 +94,12 @@ export default function Features() {
             showPlusIcon
             className="px-8 pt-12 pb-4 items-center justify-center"
           >
-            <div className={`relative w-full h-[310px]`}>
+            <div className={`relative group w-full h-[310px]`}>
               <Image
                 src="/images/balance-cards.webp"
                 alt="card5"
                 fill
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Card>
@@ -110,12 +110,12 @@ export default function Features() {
             titleCenter
             className="px-6 py-0 !items-center pb-0"
           >
-            <div className="relative w-full h-full -bottom-3">
+            <div className="relative group w-full h-full -bottom-3">
               <Image
                 src="/images/effiecent-protected.webp"
                 alt="card5"
                 fill
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
                 priority
               />
             </div>

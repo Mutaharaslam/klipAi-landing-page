@@ -7,11 +7,11 @@ export default function RoundedSections() {
       {/* 1st */}
       <BottomCurved bgColor="#74F174" curveColor="white">
         <div className="container">
-          <div className="flex items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
+          <div className="flex group items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
             <Image
               src="/images/phone-1.webp"
               alt="phone-1"
-              className="Object-contain"
+              className="Object-contain group-hover:-translate-y-4 group-hover:scale-105 transition-transform duration-300"
               fill
               priority
             />
@@ -21,11 +21,11 @@ export default function RoundedSections() {
       {/* 2nd */}
       <BottomCurved bgColor="white" curveColor="#74F174">
         <div className="container">
-          <div className="flex items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
+          <div className="flex group items-center justify-center relative sm:max-w-[420px] max-w-[272px] sm:h-[860px] h-[559px] mx-auto">
             <Image
-              src="/images/phone-1.webp"
+              src="/images/phone-1.webp" 
               alt="phone-1"
-              className="Object-contain"
+              className="Object-contain group-hover:-translate-y-4 group-hover:scale-105 transition-transform duration-300"
               fill
               priority
             />

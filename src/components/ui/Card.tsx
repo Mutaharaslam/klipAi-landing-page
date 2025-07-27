@@ -32,11 +32,11 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     >
       {showPlusIcon && (
         <span className="absolute z-10 md:top-5 md:right-5 top-4 right-4 text-gray-300">
-          <div className="flex items-center justify-center relative w-9 h-9">
+          <div className="flex group items-center justify-center relative w-9 h-9">
             <Image
               src="/icons/plus.svg"
               alt="plus"
-              className="Object-contain"
+              className="Object-contain group-hover:rotate-90 transition-transform duration-300"
               fill
               priority
             />
