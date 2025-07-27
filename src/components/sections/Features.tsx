@@ -59,13 +59,13 @@ export default function Features() {
                 min-h-[320px] md:min-h-[360px] lg:min-h-[380px] xl:min-h-[400px]
                 ${
                   index === 0
-                    ? "lg:row-span-2 lg:col-span-1 min-h-[600px] md:pt-0 pt-5"
+                    ? "lg:row-span-2 lg:col-span-1 min-h-[600px] md:pt-4 pt-8"
                     : ""
                 }
               `}
             >
               <div
-                className={`relative w-full h-full ${
+                className={`relative w-full h-full group ${
                   index === 0 ? "md:h-full h-[600px]" : "h-full"
                 }`}
               >
@@ -73,7 +73,7 @@ export default function Features() {
                   src={card.image}
                   alt={card.placeholder}
                   fill
-                  className="object-contain"
+                  className="object-contain group-hover:scale-105 transition-all duration-300"
                   sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                   priority={true} // Prioritize first few images for LCP
                 />

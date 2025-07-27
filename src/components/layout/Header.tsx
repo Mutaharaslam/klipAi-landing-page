@@ -33,8 +33,8 @@ export function Header() {
     <header
       className={`sticky container z-40 xs:w-full w-auto xs:ml-auto xs:mr-auto ml-4 mr-4 bg-black xl:px-26 lg:px-16 px-4 flex items-center justify-between lg:rounded-2xl md:rounded-2xl rounded-[7px] shadow-lg transition-all duration-300 ${
         scrolled
-          ? "top-2 md:top-2 py-0.5 md:py-2.5"
-          : "top-4 md:top-6 py-1.5 md:py-4"
+          ? "top-1 md:top-1 py-0.5 md:py-2.5 opacity-85"
+          : "top-4 md:top-6 py-1.5 md:py-4 opacity-100"
       }`}
       aria-label="Main Navigation"
     >
@@ -56,7 +56,9 @@ export function Header() {
 
       <button
         rel="noopener noreferrer"
-        className="relative cursor-pointer max-w-27 w-full px-2 pb-1 h-12 hidden md:flex items-center justify-center text-center rounded-full xl:text-base text-sm font-semibold hover:text-red-btn text-dark transition-all duration-300 overflow-hidden group bg-primary-light"
+        className={`relative cursor-pointer max-w-27 w-full px-2 pb-1  ${scrolled ? 'h-10' : 'h-12' } hidden md:flex
+         items-center justify-center text-center rounded-full xl:text-base text-sm font-semibold hover:text-red-btn 
+        text-dark transition-all duration-300 overflow-hidden group bg-primary-light`}
       >
         <span className="relative z-10 mt-1">Login</span>
         <span className="absolute inset-0 bg-primary transition-transform duration-300 group-hover:-translate-x-full"></span>
